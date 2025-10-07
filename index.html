@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小唐可爱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        h1 {
+            position: absolute;
+            top: 200px;
+            font-size: 24px;
+            color: #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>↓ ↓ ↓</h1>
+    <img onclick="clickImage(this)" src="img/未点击时.jpg" height="200px" width="200px"/>
+    <audio id="audio"></audio>
+</body>
+<script>
+    const audios = [
+        "audio/oi.mp3",
+        "audio/唐笑.mp3"
+    ];
+
+    function clickImage(img) {
+        img.src = "img/点击时.jpg";
+        // 随机选择一个音频
+        const randomSrc = audios[Math.floor(Math.random() * audios.length)];
+        const audio = document.getElementById("audio");
+        audio.src = randomSrc;
+        audio.play();
+        setTimeout(() => {
+            img.src = "img/未点击时.jpg";
+        }, 700);
+    }
+</script>
+</html>
